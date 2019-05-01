@@ -24,6 +24,8 @@ export default class App extends Component<Props> {
       super();
       this.manager = new BleManager();
       var manager = this.manager
+      var service = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E' // Strings that identify the bluetooth reciever
+      var characteristicW = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E' // You can find them with a UART bluetooth app
       this.device = null;
       var deviceID = null;
 
@@ -39,10 +41,9 @@ export default class App extends Component<Props> {
 
               // Check if it is a device you are looking for based on advertisement data
               // or other criteria.
-<<<<<<< HEAD
-              if (device.name === 'UART') {
-=======
->>>>>>> c1d6f91e6bfb5d50341e7f96e74558a1396e754e
+
+              if (device.name === 'UART' ||
+                  device.name === 'SensorTag') { //Device name, can be changed
 
                   // Stop scanning as it's not necessary if you are scanning for one device.
                   this.manager.stopDeviceScan();
@@ -55,8 +56,10 @@ export default class App extends Component<Props> {
                     .then((device) => {
                        // Do work on device with services and characteristics
                        console.log(device.id)
+                       return this.setupNotifications(device); //useless
                     })
                     .then(() => {
+                      console.log("Test"); //useless
                     })
                     .catch((error) => {
                         // Handle errors
@@ -65,6 +68,7 @@ export default class App extends Component<Props> {
           });
       };
       console.log("This is the device ID " + this.deviceID)
+      var deviceID = "E4:F1:49:C3:8D:29" //placeholder, can try to remove
       console.log("This is the device ID " + deviceID)
 
       this.scanAndConnect();
@@ -72,6 +76,7 @@ export default class App extends Component<Props> {
 
       var sendData = function(base) {
         manager.writeCharacteristicWithoutResponseForDevice(
+          deviceID, service, characteristicW, base /* 0x01 in hex */ //sends base to device on characteristicW on service
         ).then(() => {console.log("Button Press Sent");})
       };
       this.right = function() {
@@ -81,14 +86,14 @@ export default class App extends Component<Props> {
       this.createSender = function(code) {
         return function() {
           console.log(code)
+          sendData(Base64.encode(code)); //sends base64 encoded message
         }
       }
-<<<<<<< HEAD
       // this.sendData(Base64.encode("connected"))()
-=======
->>>>>>> c1d6f91e6bfb5d50341e7f96e74558a1396e754e
+      this.right(); //useless
   };
 
+  async setupNotifications(device) { //useless
     const service = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E'
     const characteristicW = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E'
     const characteristicR = '6E400003-B5A3-F393-E0A9-E50E24DCCA9E'
@@ -400,72 +405,3 @@ const Base64 = {
         return result;
     }
 };
-// var scanAndConnect = function(manager) {
-//   console.log("scanning and connecting")
-//     manager.startDeviceScan(null, null, (error, device) => {
-//         if (error) {
-//             // Handle error (scanning will be stopped automatically)
-//             return
-//         }
-//
-//         console.log(device.name);
-//
-//         // Check if it is a device you are looking for based on advertisement data
-//         // or other criteria.
-//         if (device.name === 'UART' ||
-//             device.name === 'SensorTag') {
-//
-//             // Stop scanning as it's not necessary if you are scanning for one device.
-//             manager.stopDeviceScan();
-//
-//             device.connect()
-//               .then((device) => {
-//                   return device.discoverAllServicesAndCharacteristics()
-//               })
-//               .then((device) => {
-//                  // Do work on device with services and characteristics
-//                  console.log(device.services());
-//                  for (service in device.services()) {
-//                    console.log("Service Name " + service)
-//                    console.log(seravice.characteristics())
-//                    console.log("End Service Chars")
-//                  }
-//
-//                   device.monitorCharacteristicForService(service, characteristicN, (error, characteristic) => {
-//                     if (error) {
-//                       this.error(error.message)
-//                       return
-//                     }
-//                     this.updateValue(characteristic.uuid, characteristic.value)
-//                   })
-//
-//               })
-//               .catch((error) => {
-//                   // Handle errors
-//               });
-//         }
-//     });
-// };
-
-var onPressLearnMore = function() {
-	console.log("nothing");
-}
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     marginBottom: 5,
-//   },
-// });
