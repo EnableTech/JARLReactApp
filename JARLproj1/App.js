@@ -1,229 +1,3 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  * @flow
-//  */
-//
-// import React, { Component } from 'react';
-// import {
-//   Platform,
-//   StyleSheet,
-//   Text,
-//   View,
-//   TouchableOpacity
-// } from 'react-native';
-//
-// /*const instructions = Platform.select({
-//   ios: 'Press Cmd+R to reload,\n' +
-//     'Cmd+D or shake for dev menu',
-//   android: 'Double tap R on your keyboard to reload,\n' +
-//     'Shake or press menu button for dev menu',
-// });*/
-//
-// type Props = {};
-// export default class App extends Component<Props> {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>
-//           Welcome to JARL!
-//         </Text>
-//         <Text style={styles.instructions}>
-//           To change direction, press the Forward, Backward, Left, or Right arrow
-//         </Text>
-//         <Text style={styles.instructions}>
-//           To move up or down, press the Up or Down arrow
-//         </Text>
-//         <Text style={styles.instructions}>
-//           To stop JARL, press the stop button
-//         </Text>
-//         <TouchableOpacity
-//           style={styles.buttonForward}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonText}>F</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={styles.buttonBack}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonText}>B</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={styles.buttonLeft}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonText}>L</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={styles.buttonRight}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonText}>R</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={styles.buttonUp}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonText}>U</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={styles.buttonDown}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonDText}>D</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={styles.buttonStop}
-//           onPress={this.onPress}
-//         >
-//         <Text style={styles.buttonText}>STOP</Text>
-//         </TouchableOpacity>
-//       </View>
-//     );
-//   }
-// }
-//
-//
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#F5FCFF',
-//   },
-//   welcome: {
-//     fontSize: 20,
-//     textAlign: 'center',
-//     margin: 10,
-//     top: 100
-//   },
-//   instructions: {
-//     textAlign: 'center',
-//     color: '#333333',
-//     fontSize: 15,
-//     marginBottom: 10,
-//     top: 100
-//   },
-//   buttonForward: {
-//     width: 0,
-//     height: 0,
-//     borderLeftWidth: 30,
-//     borderRightWidth: 30,
-//     borderBottomWidth: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'transparent',
-//     borderLeftColor: 'transparent',
-//     borderRightColor: 'transparent',
-//     borderBottomColor: 'black',
-//     padding: 0,
-//     right: 60,
-//     top: 200
-//   },
-//   buttonBack: {
-//     width: 0,
-//     height: 0,
-//     borderLeftWidth: 30,
-//     borderRightWidth: 30,
-//     borderTopWidth: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'transparent',
-//     borderLeftColor: 'transparent',
-//     borderRightColor: 'transparent',
-//     borderTopColor: 'black',
-//     padding: 0,
-//     right: 60,
-//     top: 300
-//   },
-//   buttonLeft: {
-//     width: 0,
-//     height: 0,
-//     borderBottomWidth: 30,
-//     borderTopWidth: 30,
-//     borderRightWidth: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'transparent',
-//     borderBottomColor: 'transparent',
-//     borderTopColor: 'transparent',
-//     borderRightColor: 'black',
-//     padding: 0,
-//     right: 140,
-//     top: 160
-//   },
-//   buttonRight: {
-//     width: 0,
-//     height: 0,
-//     borderBottomWidth: 30,
-//     borderTopWidth: 30,
-//     borderLeftWidth: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'transparent',
-//     borderBottomColor: 'transparent',
-//     borderTopColor: 'transparent',
-//     borderLeftColor: 'black',
-//     padding: 0,
-//     left: 20,
-//     top: 100
-//   },
-//   buttonUp: {
-//     width: 0,
-//     height: 0,
-//     borderLeftWidth: 30,
-//     borderRightWidth: 30,
-//     borderBottomWidth: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'transparent',
-//     borderLeftColor: 'transparent',
-//     borderRightColor: 'transparent',
-//     borderBottomColor: 'black',
-//     padding: 0,
-//     left: 130,
-//     bottom: 5
-//   },
-//   buttonDown: {
-//     width: 0,
-//     height: 0,
-//     borderLeftWidth: 30,
-//     borderRightWidth: 30,
-//     borderTopWidth: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'transparent',
-//     borderLeftColor: 'transparent',
-//     borderRightColor: 'transparent',
-//     borderTopColor: 'black',
-//     padding: 0,
-//     left: 130,
-//     top: 25
-//   },
-//   buttonStop: {
-//     width: 60,
-//     height: 60,
-//     alignItems: 'center',
-//     backgroundColor: 'pink',
-//     padding: 0,
-//     right: 60,
-//     bottom: 80
-//   },
-//   buttonText: {
-//     color: 'black',
-//     fontWeight: 'bold',
-//     fontSize: 20,
-//     top: 15
-//   },
-//   buttonDText: {
-//     color: 'pink',
-//     fontWeight: 'bold',
-//     fontSize: 20,
-//     bottom: 40,
-//     right: 0
-//   },
-// });
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import { BleManager } from 'react-native-ble-plx';
 import { Button } from 'react-native';
@@ -267,8 +41,7 @@ export default class App extends Component<Props> {
 
               // Check if it is a device you are looking for based on advertisement data
               // or other criteria.
-              if (device.name === 'UART' ||
-                  device.name === 'SensorTag') {
+              if (device.name === 'UART') {
 
                   // Stop scanning as it's not necessary if you are scanning for one device.
                   this.manager.stopDeviceScan();
@@ -314,7 +87,7 @@ export default class App extends Component<Props> {
           sendData(Base64.encode(code));
         }
       }
-      this.right();
+      // this.sendData(Base64.encode("connected"))()
   };
 
   async setupNotifications(device) {
@@ -322,29 +95,8 @@ export default class App extends Component<Props> {
     const characteristicW = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E'
     const characteristicR = '6E400003-B5A3-F393-E0A9-E50E24DCCA9E'
     console.log("sending data");
-    // const characteristic = await device.writeCharacteristicWithoutResponseForService(
-    //   service, characteristicW, "Q29ubmVjdGluZw==" /* 0x01 in hex */
-    // )
   }
 
-  // render() {
-  //   return (
-  //     <View style={styles.container}>
-  //       <Text style={styles.welcome}>
-  //         Uh oh, not updating
-  //       </Text>
-  //       <Text style={styles.welcome}>
-  //         HELLO WORLD!!!
-  //       </Text>
-	// 	<Button
-	// 	  onPress={this.right}
-	// 	  title="Right"
-	// 	  color="#841584"
-	// 	  accessibilityLabel="Learn more about this purple button"
-	// 	/>
-  //     </View>
-  //   );
-  // }
   render() {
     return (
       <View style={styles.container}>
@@ -408,6 +160,20 @@ export default class App extends Component<Props> {
           onPressOut={this.createSender("s0")}
         >
         <Text style={styles.buttonText}>STOP</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonGripOpen}
+          onPressIn={this.createSender("o1")}
+          onPressOut={this.createSender("o0")}
+        >
+        <Text style={styles.buttonText}>G</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonGripClose}
+          onPressIn={this.createSender("c1")}
+          onPressOut={this.createSender("c0")}
+        >
+        <Text style={styles.buttonText}>G</Text>
         </TouchableOpacity>
       </View>
     );
@@ -505,8 +271,8 @@ const styles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: 'black',
     padding: 0,
-    left: 130,
-    bottom: 5
+    left: 115,
+    bottom: 40
   },
   buttonDown: {
     width: 0,
@@ -520,8 +286,38 @@ const styles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderTopColor: 'black',
     padding: 0,
-    left: 130,
-    top: 25
+    left: 115,
+    top: 60
+  },
+  buttonGripClose: {
+    width: 0,
+    height: 0,
+    borderBottomWidth: 30,
+    borderTopWidth: 30,
+    borderRightWidth: 60,
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderBottomColor: 'transparent',
+    borderTopColor: 'transparent',
+    borderRightColor: 'black',
+    padding: 0,
+    left: 80,
+    bottom: 200
+  },
+  buttonGripOpen: {
+    width: 0,
+    height: 0,
+    borderBottomWidth: 30,
+    borderTopWidth: 30,
+    borderLeftWidth: 60,
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderBottomColor: 'transparent',
+    borderTopColor: 'transparent',
+    borderLeftColor: 'black',
+    padding: 0,
+    left: 150,
+    bottom: 140
   },
   buttonStop: {
     width: 60,
