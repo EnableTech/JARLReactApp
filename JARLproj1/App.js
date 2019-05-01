@@ -24,8 +24,6 @@ export default class App extends Component<Props> {
       super();
       this.manager = new BleManager();
       var manager = this.manager
-      var service = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E'
-      var characteristicW = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E'
       this.device = null;
       var deviceID = null;
 
@@ -41,7 +39,10 @@ export default class App extends Component<Props> {
 
               // Check if it is a device you are looking for based on advertisement data
               // or other criteria.
+<<<<<<< HEAD
               if (device.name === 'UART') {
+=======
+>>>>>>> c1d6f91e6bfb5d50341e7f96e74558a1396e754e
 
                   // Stop scanning as it's not necessary if you are scanning for one device.
                   this.manager.stopDeviceScan();
@@ -54,10 +55,8 @@ export default class App extends Component<Props> {
                     .then((device) => {
                        // Do work on device with services and characteristics
                        console.log(device.id)
-                       return this.setupNotifications(device);
                     })
                     .then(() => {
-                      console.log("Test");
                     })
                     .catch((error) => {
                         // Handle errors
@@ -66,7 +65,6 @@ export default class App extends Component<Props> {
           });
       };
       console.log("This is the device ID " + this.deviceID)
-      var deviceID = "E4:F1:49:C3:8D:29"
       console.log("This is the device ID " + deviceID)
 
       this.scanAndConnect();
@@ -74,7 +72,6 @@ export default class App extends Component<Props> {
 
       var sendData = function(base) {
         manager.writeCharacteristicWithoutResponseForDevice(
-          deviceID, service, characteristicW, base /* 0x01 in hex */
         ).then(() => {console.log("Button Press Sent");})
       };
       this.right = function() {
@@ -84,13 +81,14 @@ export default class App extends Component<Props> {
       this.createSender = function(code) {
         return function() {
           console.log(code)
-          sendData(Base64.encode(code));
         }
       }
+<<<<<<< HEAD
       // this.sendData(Base64.encode("connected"))()
+=======
+>>>>>>> c1d6f91e6bfb5d50341e7f96e74558a1396e754e
   };
 
-  async setupNotifications(device) {
     const service = '6E400001-B5A3-F393-E0A9-E50E24DCCA9E'
     const characteristicW = '6E400002-B5A3-F393-E0A9-E50E24DCCA9E'
     const characteristicR = '6E400003-B5A3-F393-E0A9-E50E24DCCA9E'
