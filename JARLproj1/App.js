@@ -90,7 +90,7 @@ export default class App extends Component<Props> {
         }
       }
       // this.sendData(Base64.encode("connected"))()
-      this.right(); //useless
+      // this.right(); //useless
   };
 
   async setupNotifications(device) { //useless
